@@ -35,7 +35,7 @@ def check_collision(pipes):
         if bird_rect.colliderect(pipe):
             hit_sound.play()
             return False # Nếu va chạm sẽ kết thúc trò chơi
-    if bird_rect.top <= 75 or bird_rect.bottom >= 720:
+    if bird_rect.top <= 0 or bird_rect.bottom >= 720:
         return False # Trò chơi kết thúc
     return True
 
