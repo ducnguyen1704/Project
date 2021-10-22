@@ -23,7 +23,7 @@ def move_pipe(pipes):
 # Hàm  vẽ ống
 def draw_pipe(pipes):
     for pipe in pipes:
-        if pipe.bottom >=600: # Điều kiện quay ngược ống
+        if pipe.bottom >=500: # Điều kiện quay ngược ống
             screen.blit(pipe_surface, pipe) 
         else:
             flip_pipe = pygame.transform.flip(pipe_surface, False, True) # False là trục x, True là trục Y --> Lật ngược hình
@@ -78,7 +78,7 @@ clock = pygame.time.Clock() # Xét FPS
 game_font = pygame.font.Font('04B_19.ttf', 40)
 
 # Tạo biến cho trò chơi
-gravity = 0.2 # Thêm trọng lực.
+gravity = 0.15 # Thêm trọng lực.
 bird_movement = 0
 game_active = True # Game hoạt động --> False thì trò chơi kết thúc.
 # Tạo điểm
@@ -89,7 +89,7 @@ bg = pygame.image.load('assets/background-night.png').convert()
 bg = pygame.transform.scale2x(bg) # background chiếm hết khung hình của pygame
 
 # chèn sàn
-floor = pygame.image.load('assets/floor.png')
+floor = pygame.image.load('assets/floor.png').convert()
 floor = pygame.transform.scale2x(floor) # Sàn chiếm hết khung hình của pygame
 floor_x_pos = 0
 
@@ -135,7 +135,7 @@ while True: # Vòng lặp thực hiện trong cửa sổ.
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE and game_active: # Ấn phím space và khi game hoạt động
                 bird_movement = 0
-                bird_movement = -11
+                bird_movement = -8
                 flap_sound.play()
             if event.key == pygame.K_SPACE and game_active == False: # Khi game kết thúc
                 game_active = True # Nhấn phím space sẽ chơi lại từ đầu.
